@@ -1,5 +1,15 @@
-<div class="subnav">
-    <ul>
-        <li>item 1</li>
-    </ul>
-</div>
+<div class="toggle-list">
+    <div class="list-item" *ngFor="let item of listItems; let i = index" >
+        <div class="for-toggle" (click)="toggleItem(i)">
+            <cds-icon shape="angle" flip="verticle" class="toggle-icon"></cds-icon>
+            <cds-icon shape="users" size="30" solid class="toggle-container"></cds-icon>
+        {{ item.name }}
+        </div>
+      <div class="item-content" *ngIf="item.expanded">
+        <div *ngFor="let contentItem of item.content">
+          {{ contentItem }}
+        </div>
+      </div>
+    </div>
+  </div>
+  

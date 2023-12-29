@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { navbarData } from './nav-data';
 import '@cds/core/icon/register.js';
-import { ClarityIcons, userIcon, circleIcon, bellIcon } from '@cds/core/icon';
+import { ClarityIcons, userIcon, circleIcon, bellIcon} from '@cds/core/icon';
 
 ClarityIcons.addIcons(userIcon, circleIcon, bellIcon);
 
