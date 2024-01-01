@@ -1,4 +1,5 @@
 <div class="toggle-list">
+  <div class="subnav-header">Teams</div>
     <div class="list-item" *ngFor="let item of listItems; let i = index" >
         <div class="for-toggle" (click)="toggleItem(i)">
             <cds-icon shape="angle" flip="verticle" class="toggle-icon"></cds-icon>
@@ -6,10 +7,10 @@
         {{ item.name }}
         </div>
       <div class="item-content" *ngIf="item.expanded">
-        <div *ngFor="let contentItem of item.content">
-          {{ contentItem }}
+        <div *ngFor="let contentItem of item.content;let route of item.routeLink;let i=index">
+          
+         <a class="subnav-nav-link" [routerLink]="[route]">  {{ item.content[i]}}</a>
         </div>
-      </div>
     </div>
   </div>
   

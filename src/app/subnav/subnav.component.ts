@@ -12,8 +12,8 @@ ClarityIcons.addIcons(angleIcon,usersIcon);
 })
 
 export class SubnavComponent {
-  listItems = [
-    { name: 'List1', content: ['Item1', 'Item2'], expanded: false },
+  listItems= [
+    { name: 'List1', content: ['Item1', 'Item2'], expanded: false ,routeLink:['teams','teams2']},
     // more items 
   ];
 

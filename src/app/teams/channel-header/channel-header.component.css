@@ -1,0 +1,20 @@
+.channel-header{
+    border-color:rgb(215, 215, 221);
+    background-color: rgb(245, 245, 245);
+    height:60px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    top: 0;
+
+}
+.user-icon{
+    margin-left: 6px;
+}
+.user-circle{
+    position:absolute
+}
+.user-profile{
+    margin-left: 25%;
+    color: white;
+}
+

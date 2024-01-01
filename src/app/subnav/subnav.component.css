@@ -1,8 +1,23 @@
 .toggle-list {
     /* background-color: aqua; */
     align-items: flex-start;
+    
 
   }
+.subnav-header{
+  height: 60px;
+  border-color:rgb(215, 215, 221);
+  border-width: 1px;
+  border-bottom-style: solid;
+  width: 200px;
+  font-size: 18px;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  color: black;
+  font-weight:bold;
+  padding-left: 20px;
+}
   
   .list-item {
     cursor: pointer;
@@ -31,4 +46,10 @@
     background-size: 50px;
     border-radius: 2px;
     font-size: 40px;
+}
+.subnav-nav-link{
+  display: flex;
+  align-items: center;
+  color: blue;
+
 }
