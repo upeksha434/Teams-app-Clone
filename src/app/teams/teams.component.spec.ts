@@ -1,7 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TeamsComponent } from './teams.component';
+import '@cds/core/icon/register.js';
+import '@cds/core/button/register.js';
+import { ClarityIcons, userIcon,searchIcon,circleIcon } from '@cds/core/icon';
 
+ClarityIcons.addIcons(userIcon,searchIcon,circleIcon);
 describe('TeamsComponent', () => {
   let component: TeamsComponent;
   let fixture: ComponentFixture<TeamsComponent>;

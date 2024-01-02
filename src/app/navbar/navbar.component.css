@@ -1,6 +1,8 @@
 .header{
     z-index: 3;
     height: 50px;
+    width: 100%;
+    position: fixed;
 }
 
 .search-bar-container {

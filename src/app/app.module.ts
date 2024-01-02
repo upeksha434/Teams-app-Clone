@@ -14,6 +14,8 @@ import { SubnavComponent } from './subnav/subnav.component';
 import { Teams2Component } from './teams2/teams2.component';
 import { MiniheadderComponent } from './body/miniheadder/miniheadder.component';
 import { ChannelHeaderComponent } from './teams/channel-header/channel-header.component';
+import { ChatDetailComponent } from './teams/chat-detail/chat-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { ChannelHeaderComponent } from './teams/channel-header/channel-header.co
     SubnavComponent,
     Teams2Component,
     MiniheadderComponent,
-    ChannelHeaderComponent
+    ChannelHeaderComponent,
+    ChatDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { ChannelHeaderComponent } from './teams/channel-header/channel-header.co
     BrowserAnimationsModule,
     MatToolbarModule,
     ClarityModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
