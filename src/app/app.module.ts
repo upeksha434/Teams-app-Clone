@@ -16,6 +16,7 @@ import { MiniheadderComponent } from './body/miniheadder/miniheadder.component';
 import { ChannelHeaderComponent } from './teams/channel-header/channel-header.component';
 import { ChatDetailComponent } from './teams/chat-detail/chat-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatToolbarModule,
     ClarityModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

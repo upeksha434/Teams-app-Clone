@@ -1,1 +1,56 @@
 <p>msgs are here</p>
+<div class="msg-list">
+    <ul class="list-group">
+        <li class="single-msg" *ngFor="let cd of service.list">
+        
+        <div class="all-components">
+            <div class="date-options" style="display: flex;flex-direction: row;align-items: center;">
+                <div >
+                <span class="user-profile">
+                            
+                    <cds-icon shape="circle" solid size="30" class="user-circle"></cds-icon>
+                    <cds-icon shape="user" class="user-icon"></cds-icon>
+                  
+                </span><span style="font-size: 12px;font-weight: bold;">User </span></div>
+                <div class="display-date" style="margin-left: -300px;">{{cd.msgDate}}</div>
+                <div class="options">
+                    <span class="reply" style="padding-right: 5px;">
+                        <cds-icon shape="replay-all"></cds-icon>
+                    </span>
+                    <span class="edit" (click)="populateForm(cd)">
+                        <cds-icon shape="pencil" solid style="padding-right: 5px;"></cds-icon>
+                    </span>
+                    <span class="dlt" (click)="onDelete(cd.chatmsgId)">
+                        <cds-icon shape="trash" solid style="padding-right: 5px;"></cds-icon>
+                    </span>
+                </div>
+                <!-- <span class="show-reply" (click)="onShowReply(cd.chatmsgId)"></span> -->
+                
+                  
+            </div>
+            
+            <div class="msg-container" onmouseover="" style="margin-left: 35px;">  
+                <div class="msg-content" style="max-width: 500px; word-wrap: break-word;">{{cd.chatmsg}}</div>
+            </div>
+            <span style="color: #444892 ;margin-bottom: -10px;font-weight: bold;">Reply</span>
+            <div>
+                <ul class="list-group">
+                    <li class="single-reply-msg" *ngFor="let reply of service.replyMessages[cd.chatmsgId] | keyvalue">
+                        <div><span class="user-profile">
+                            
+                              <cds-icon shape="circle" solid size="25" class="user-circle"></cds-icon>
+                              <cds-icon shape="user" class="user-icon" size="13" style="margin-left: -21px;"></cds-icon>
+                            
+                          </span><span style="font-size: 10px; font-weight: bold;;">User </span><span style="font-size: 10px;margin-left: 7px">{{ reply.value["time"] }}</span></div><span style="padding-left: 35px;">{{ reply.value["message"] }}</span>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        
+        
+    </li>
+    </ul>
+</div>

@@ -1,6 +1,6 @@
 .sidenav {
-    background: rgb(245, 245, 245);
-    
+    /* background: rgb(245, 245, 245); */
+    background-color: #444892;
     position: fixed;
     z-index: 2;
     /* align-items: center; */

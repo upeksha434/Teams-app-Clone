@@ -1,3 +1,4 @@
+
 <div class="chat-window">
     <app-channel-header></app-channel-header>
     <div class="chat-container">
@@ -6,11 +7,20 @@
         </div>
         
     </div>
-  
+
+
+
+    <form #form="ngForm" (submit)="onSubmit(form)">
+        <input type="hidden" name="chatmsgId" [value]="service.formData.chatmsgId">
     <div class="new-message">
-        <input class="msg-type"  placeholder="Type your message..." />
-        <button class="msg-send">Send</button>
-        </div>
+        <input class="msg-type"  placeholder="Type your message..." 
+        #chatmsg="ngModel" name="chatmsg"
+        [(ngModel)]="service.formData.chatmsg">
+        <button class="msg-send" type="submit">Send</button>
+    </div>
+    <input type="hidden" name="msgDate" [value]="service.formData.msgDate">
+</form>
 </div>
+
 
 
