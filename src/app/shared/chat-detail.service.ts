@@ -3,6 +3,7 @@ import {HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ChatDetail, ReplyDetail } from './chat-detail.model';
 import { NgForm } from '@angular/forms';
+import { id } from '@cds/core/internal';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,8 @@ export class ChatDetailService {
   list2:ReplyDetail[]=[]
   replyMessages: { [chatmsgId: number]: {}} = {};
   formData:ChatDetail=new ChatDetail()
+
+  replyFormData:ReplyDetail=new ReplyDetail()
   //http://localhost:5174/api/ChatDetail
   constructor(private http:HttpClient) { }
 
@@ -33,12 +36,14 @@ export class ChatDetailService {
 
           const reply = {
           message: element.message,
-          time: element.date
+          time: element.date,
+          id:element.id
         };
   
           // Append to the list
           (this.replyMessages[element.chatmsgId] as any[]).push(reply);
         });
+        console.log(this.replyMessages,"reply msg list")
         
         // console.log(this.replyMessages,"reply message list");
         
@@ -77,6 +82,9 @@ export class ChatDetailService {
 
   deleteMsgDetail(id:number){
     return this.http.delete(this.url+'/'+id)
+  }
+  deleteReplyDetail(id:number){
+    return this.http.delete(this.url2+'/'+id)
   }
 
 
@@ -122,6 +130,11 @@ export class ChatDetailService {
     console.log(`No replies for chatmsgId ${id}`);
     return ;
     }
+  }
+
+  PostReply(replyDetail:ReplyDetail){
+    console.log("replyFormData",replyDetail)
+    return this.http.post(this.url2,replyDetail)
   }
   
 }

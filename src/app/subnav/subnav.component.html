@@ -4,7 +4,7 @@
         <div class="for-toggle" (click)="toggleItem(i)">
             <cds-icon shape="angle" flip="verticle" class="toggle-icon"></cds-icon>
             <cds-icon shape="users" size="30" solid class="toggle-container"></cds-icon>
-        {{ item.name }}
+        {{item.name }}
         </div>
       <div class="item-content" *ngIf="item.expanded">
         <div *ngFor="let contentItem of item.content;let route of item.routeLink;let i=index">

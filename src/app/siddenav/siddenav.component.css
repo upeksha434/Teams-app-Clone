@@ -1,6 +1,6 @@
 .sidenav {
     /* background: rgb(245, 245, 245); */
-    background-color: #444892;
+    background-color: rgb(245, 245, 245);
     position: fixed;
     z-index: 2;
     /* align-items: center; */
@@ -18,9 +18,9 @@
 
 .sidenav-nav-item {
     margin-top: 5px;
-    margin-bottom: 45px;
+    margin-bottom: 30px;
     align-items: center;
-    margin-left: -20px;
+    margin-left: -10px;
     padding-left: 10px;
     
     

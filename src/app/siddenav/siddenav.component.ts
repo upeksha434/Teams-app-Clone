@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { navbarData } from './nav-data';
 import '@cds/core/icon/register.js';
-import { ClarityIcons, userIcon, circleIcon, bellIcon} from '@cds/core/icon';
+import { ClarityIcons, userIcon, circleIcon, bellIcon,usersIcon,chatBubbleIcon,calendarIcon,cloudIcon,phoneHandsetIcon,ellipsisVerticalIcon, ellipsisHorizontalIcon} from '@cds/core/icon';
 
-ClarityIcons.addIcons(userIcon, circleIcon, bellIcon);
+ClarityIcons.addIcons(userIcon, circleIcon, bellIcon,userIcon,chatBubbleIcon,calendarIcon,cloudIcon,phoneHandsetIcon,ellipsisHorizontalIcon);
 
 @Component({
   selector: 'app-siddenav',
@@ -14,16 +14,36 @@ ClarityIcons.addIcons(userIcon, circleIcon, bellIcon);
 export class SiddenavComponent {
   navData: any[] = [
     {
+      icon: 'user',
+      label: 'Teams',
+      pressed:false,
+    },
+    {
       icon: 'bell',
       label: 'Activity',
       pressed:false,
     },
     {
-      icon: 'circle',
-      label: 'Teams',
+      icon: 'chat-bubble',
+      label: 'Chat',
       pressed:false,
     },
-    // ... other initial items
+    {
+      icon: 'calendar',
+      label: 'Calender',
+      pressed:false,
+    },
+    {
+      icon: 'phone-handset',
+      label: 'Calls',
+      pressed:false,
+    },
+    {
+      icon:'ellipsis-horizontal',
+      label:'',
+      pressed:false
+    }
+
   ];
 
   selectedIcon: { icon: string, label: string } | null = null;

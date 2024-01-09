@@ -7,9 +7,15 @@ export class ChatDetail {
 export class ReplyDetail{
     id:number=0;
     message:string="";
-    date:string="";
+    date:string=new Date().toLocaleString();
     chatmsgId:number=0;
-    chatDetail:any=null;
+
+    setChatmsgId(chatmsgId: number,message:string) {
+        this.chatmsgId = chatmsgId;
+        this.message=message;
+    } //since chatmsgI varies
+
+    
 
 
 

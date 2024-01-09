@@ -1,29 +1,58 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { TestBed, inject } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { ChatDetailService } from 'src/app/shared/chat-detail.service';
+import { ChatDetail, ReplyDetail } from 'src/app/shared/chat-detail.model';
 
-describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent]
-  }));
+describe('ChatDetailService', () => {
+  let service: ChatDetailService;
+  let httpMock: HttpTestingController;
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [ChatDetailService]
+    });
+    service = TestBed.inject(ChatDetailService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
-  it(`should have as title 'angular-assignment'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-assignment');
+  afterEach(() => {
+    httpMock.verify();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('angular-assignment app is running!');
+  it('should be created', () => {
+    expect(service).toBeTruthy();
   });
+
+  it('should retrieve main messages from API', () => {
+    const mockMainMessages: ChatDetail[] = [
+      // Your mock main messages here
+    ];
+
+    service.refreshList();
+
+    const req = httpMock.expectOne(`${service.url}`);
+    expect(req.request.method).toBe('GET');
+    req.flush(mockMainMessages);
+
+    expect(service.list).toEqual(mockMainMessages);
+  });
+
+  it('should retrieve reply messages from API', () => {
+    const mockReplyMessages: ReplyDetail[] = [
+      // Your mock reply messages here
+    ];
+
+    service.refreshListReply();
+
+    const req = httpMock.expectOne(`${service.url2}`);
+    expect(req.request.method).toBe('GET');
+    req.flush(mockReplyMessages);
+
+    expect(service.list2).toEqual(mockReplyMessages);
+  });
+
+  // Add more test cases for other methods like postMsgDetail, putMsgDetail, deleteMsgDetail, etc.
+
 });
+

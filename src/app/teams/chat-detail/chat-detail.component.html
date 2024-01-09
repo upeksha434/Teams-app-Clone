@@ -1,4 +1,4 @@
-<p>msgs are here</p>
+
 <div class="msg-list">
     <ul class="list-group">
         <li class="single-msg" *ngFor="let cd of service.list">
@@ -32,7 +32,23 @@
             <div class="msg-container" onmouseover="" style="margin-left: 35px;">  
                 <div class="msg-content" style="max-width: 500px; word-wrap: break-word;">{{cd.chatmsg}}</div>
             </div>
-            <span style="color: #444892 ;margin-bottom: -10px;font-weight: bold;">Reply</span>
+            <span (click)="toggleReplyField(cd.chatmsgId)"style="color: #444892 ;margin-bottom: -10px;font-weight: bold;">Reply</span>
+            <div *ngIf="replyFieldVisibility[cd.chatmsgId] && replyMessageChatId===cd.chatmsgId" class="reply-field">
+
+                <form #form="ngForm" (submit)="onSubmitReply(form,cd.chatmsgId)">
+                <input type="hidden" name="id" [value]="service.replyFormData.id">
+
+                <input class="class-to-toggle" type="text" placeholder="Type your reply..."
+                #message="ngModel" name="message"
+                [(ngModel)]="service.replyFormData.message">
+
+                <input type="hidden" name="date" [value]="service.replyFormData.date">
+                <input type="hidden" name="chatmsgId" [value]="cd.chatmsgId">
+
+                <button class="reply-button" type="submit">Send</button>
+                </form>
+
+            </div>
             <div>
                 <ul class="list-group">
                     <li class="single-reply-msg" *ngFor="let reply of service.replyMessages[cd.chatmsgId] | keyvalue">
@@ -41,7 +57,12 @@
                               <cds-icon shape="circle" solid size="25" class="user-circle"></cds-icon>
                               <cds-icon shape="user" class="user-icon" size="13" style="margin-left: -21px;"></cds-icon>
                             
-                          </span><span style="font-size: 10px; font-weight: bold;;">User </span><span style="font-size: 10px;margin-left: 7px">{{ reply.value["time"] }}</span></div><span style="padding-left: 35px;">{{ reply.value["message"] }}</span>
+                          </span><span style="font-size: 10px; font-weight: bold;;">User </span><span style="font-size: 10px;margin-left: 7px">{{ reply.value["time"] }}</span>
+                          <span class="reply-dlt" (click)="onDeleteReply(reply.value)">
+                            <cds-icon shape="trash" solid="true"></cds-icon>
+                          </span>
+
+                        </div><span style="padding-left: 35px;">{{ reply.value["message"] }}</span>
                         
                     </li>
                 </ul>

@@ -56,6 +56,7 @@
 }
 .list-group{
     list-style: none;
+   
     
 }
 .user-icon{
@@ -82,4 +83,16 @@
     margin-top:10px;
 
 }
+.class-to-toggle{
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(204, 205, 206);
+    margin-top: 8px;
+    width: 100%;
 
+}
+.reply-button{
+    border-style: none;
+    background-color: #444892;
+    color: white;
+}
